@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo Simples</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Jogo: Clique o mais rápido possível</h1>
+    <p>Tempo restante: <span id="time">10</span> segundos</p>
+    <p>Sua pontuação: <span id="score">0</span></p>
+    <p>Pontuação do adversário: <span id="opponentScore">0</span></p>
+    <button id="startGame" onclick="startGame()">Iniciar jogo</button>
+    <button id="stopGame" onclick="stopGame()" disabled>Parar jogo</button>
+    <button id="clickMe" onclick="incrementScore()" disabled>Clique rápido!</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+

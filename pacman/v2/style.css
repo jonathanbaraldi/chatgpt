@@ -1,0 +1,29 @@
+body {
+  background-color: black;
+}
+
+canvas {
+  border: 1px solid white;
+}
+
+#game-canvas {
+  width: 640px;
+  height: 480px;
+}
+
+
+.pellet {
+  background-color: white;
+}
+
+.wall {
+  background-color: blue;
+}
+
+.pacman {
+  background-color: yellow;
+}
+
+.ghost {
+  background-color: red;
+}

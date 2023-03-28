@@ -1,0 +1,65 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Add some style to the page */
+  /* Add some style to the page */
+body {
+  background-color: #333;
+  color: #fff;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+canvas {
+  border: 1px solid #fff;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Style the ball */
+.ball {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+/* Style the paddles */
+.paddle {
+  background-color: #fff;
+  width: 10px;
+  height: 50px;
+}
+
+/* Style the scores */
+.score {
+  font-size: 20px;
+}
+
+/* Style the start button */
+.start-button {
+  background-color: #fff;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.start-button:hover {
+  background-color: #ccc;
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- Create a canvas element on the page -->
+  <canvas id="pong" width="800" height="600"></canvas>
+
+  <!-- Include the JavaScript file -->
+  <script src="pong.js"></script>
+</body>
+</html>

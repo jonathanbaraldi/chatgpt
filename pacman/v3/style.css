@@ -1,0 +1,20 @@
+#game-container {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  background-color: #222;
+  border: 1px solid #000;
+}
+
+#game-board {
+  width: 480px;
+  height: 480px;
+  margin: 10px;
+  background-color: #333;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.game-element {
+  position: absolute;
+}
