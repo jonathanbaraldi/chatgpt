@@ -1,0 +1,533 @@
+Demand: Create a webpage for my customer with a responsive, functional and beautiful calculator
+Specifications: Specifications:
+
+1. Design:
+• Create a visually pleasing and modern design for the calculator.
+• Responsive design across multiple devices and platforms.
+
+2. Functionality:
+• Create a calculator that can perform basic mathematical operations (addition, subtraction, multiplication and division).
+• Allow users to input numbers and receive the result of the operation.
+• Include a clear button to reset the calculator.
+
+3. Usability:
+• Ensure the calculator is easy to use and understand.
+• Provide clear instructions on how to use the calculator.
+• Include a help button to provide further support.
+
+4. Security:
+• Ensure all inputted data is secure and not accessible by third parties.
+• Ensure the calculator is free from viruses and malware.
+Code: HTML:
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Calculator</h1>
+    <div class="calculator">
+      <div class="screen">
+        <input type="text" id="screen" readonly>
+      </div>
+      <div class="buttons">
+        <button class="btn" onclick="calculate('1')">1</button>
+        <button class="btn" onclick="calculate('2')">2</button>
+        <button class="btn" onclick="calculate('3')">3</button>
+        <button class="btn" onclick="calculate('+')">+</button>
+        <button class="btn" onclick="calculate('4')">4</button>
+        <button class="btn" onclick="calculate('5')">5</button>
+        <button class="btn" onclick="calculate('6')">6</button>
+        <button class="btn" onclick="calculate('-')">-</button>
+        <button class="btn" onclick="calculate('7')">7</button>
+        <button class="btn" onclick="calculate('8')">8</button>
+        <button class="btn" onclick="calculate('9')">9</button>
+        <button class="btn" onclick="calculate('*')">x</button>
+        <button class="btn" onclick="calculate('.')">.</button>
+        <button class="btn" onclick="calculate('0')">0</button>
+        <button class="btn" onclick="calculate('=')">=</button>
+        <button class="btn" onclick="calculate('/')">/</button>
+        <button class="btn" onclick="clear()">Clear</button>
+        <button class="btn" onclick="help()">Help</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+CSS:
+body {
+  font-family: 'Arial';
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+h1 {
+  font-size: 32px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.calculator {
+  width: 300px;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.screen {
+  width: 100%;
+  height: 80px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 25px;
+  text-align: right;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.btn {
+  width: 25%;
+  height: 60px;
+  font-size: 20px;
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+JavaScript:
+// Calculate function
+function calculate(val) {
+  document.getElementById('screen').value += val;
+}
+
+// Clear function
+function clear() {
+  document.getElementById('screen').value = '';
+}
+
+// Help function
+function help() {
+  alert('Enter a number and select an operator to perform a mathematical operation. The result will be displayed in the output field. Click the Clear button to reset the calculator.');
+}
+IsValid: True
+
+Demand: Create a webpage for my customer with a responsive, functional and beautiful calculator
+Specifications: Specifications:
+
+- The webpage should be designed to have a responsive layout, so that it is easy to use on mobile and desktop devices.
+- The calculator should be functional and accurate, allowing for easy calculations.
+- The calculator should be aesthetically pleasing, with an attractive design that is easy to use.
+- The calculator should include basic functions such as addition, subtraction, multiplication and division.
+- The calculator should have a clear display that allows users to easily see their results.
+- The calculator should have a memory function that allows users to store and recall previous calculations.
+- The calculator should include a “clear” button to reset the calculator and start a new calculation.
+- The calculator should include a “backspace” button to allow users to easily delete their mistakes.
+Code: <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #f1f1f1;
+      }
+
+      .calculator-container {
+        margin: 0 auto;
+        width: 400px;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      .calculator-container input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        background: #f1f1f1;
+        border: none;
+        font-size: 22px;
+        font-family: sans-serif;
+        text-align: right;
+      }
+
+      .calculator-container button {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 22px;
+        font-family: sans-serif;
+        background: #fff;
+        border: 1px solid #f1f1f1;
+        transition: 0.2s ease;
+      }
+
+      .calculator-container button:hover {
+        background: #f1f1f1;
+        border: 1px solid #fff;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator-container">
+      <input type="text" id="display" disabled />
+      <div>
+        <button type="button" id="clear">C</button>
+        <button type="button" id="backspace">&larr;</button>
+        <button type="button" id="divide">&#247;</button>
+        <button type="button" id="multiply">&#215;</button>
+      </div>
+      <div>
+        <button type="button" id="seven">7</button>
+        <button type="button" id="eight">8</button>
+        <button type="button" id="nine">9</button>
+        <button type="button" id="subtract">-</button>
+      </div>
+      <div>
+        <button type="button" id="four">4</button>
+        <button type="button" id="five">5</button>
+        <button type="button" id="six">6</button>
+        <button type="button" id="add">+</button>
+      </div>
+      <div>
+        <button type="button" id="one">1</button>
+        <button type="button" id="two">2</button>
+        <button type="button" id="three">3</button>
+        <button type="button" id="equals">=</button>
+      </div>
+      <div>
+        <button type="button" id="zero">0</button>
+        <button type="button" id="decimal">.</button>
+        <button type="button" id="memory">M</button>
+      </div>
+    </div>
+
+    <script>
+      // Set display
+      const display = document.querySelector("#display");
+      let currentNumber = "0";
+      let memoryNumber = 0;
+      let operation = "";
+
+      // Set number buttons
+      const numButtons = document.querySelectorAll("button");
+      numButtons.forEach(function(button) {
+        if (button.id.startsWith("num")) {
+          button.addEventListener("click", function() {
+            if (currentNumber === "0") {
+              currentNumber = this.innerHTML;
+            } else {
+              currentNumber += this.innerHTML;
+            }
+            display.value = currentNumber;
+          });
+        }
+      });
+
+      // Set clear button
+      const clearButton = document.querySelector("#clear");
+      clearButton.addEventListener("click", function() {
+        currentNumber = "0";
+        memoryNumber = 0;
+        operation = "";
+        display.value = currentNumber;
+      });
+
+      // Set backspace button
+      const backspaceButton = document.querySelector("#backspace");
+      backspaceButton.addEventListener("click", function() {
+        currentNumber = currentNumber.slice(0, currentNumber.length - 1);
+        if (currentNumber === "") {
+          currentNumber = "0";
+        }
+        display.value = currentNumber;
+      });
+
+      // Set operation buttons
+      const operatorButtons = document.querySelectorAll("button");
+      operatorButtons.forEach(function(button) {
+        if (button.id.startsWith("operator")) {
+          button.addEventListener("click", function() {
+            memoryNumber = parseFloat(currentNumber);
+            operation = this.innerHTML;
+            currentNumber = "0";
+          });
+        }
+      });
+
+      // Set equals button
+      const equalsButton = document.querySelector("#equals");
+      equalsButton.addEventListener("click", function() {
+        if (operation === "+") {
+          currentNumber = memoryNumber + parseFloat(currentNumber);
+        } else if (operation === "-") {
+          currentNumber = memoryNumber - parseFloat(currentNumber);
+        } else if (operation === "&#215;") {
+          currentNumber = memoryNumber * parseFloat(currentNumber);
+        } else if (operation === "&#247;") {
+          currentNumber = memoryNumber / parseFloat(currentNumber);
+        }
+        display.value = currentNumber;
+        operation = "";
+      });
+
+      // Set memory button
+      const memoryButton = document.querySelector("#memory");
+      memoryButton.addEventListener("click", function() {
+        memoryNumber = parseFloat(currentNumber);
+      });
+    </script>
+  </body>
+</html>
+IsValid: True
+
+Demand: Create a webpage for my customer with a responsive, functional and beautiful calculator
+Specifications: 1. Create an aesthetically pleasing, modern design for the calculator page.
+2. Create a responsive design so the calculator page works on different devices and screen sizes.
+3. Use HTML, CSS, and JavaScript to program the page.
+4. Create a calculator with basic arithmetic functions, such as addition, subtraction, multiplication and division.
+5. Enable the calculator to calculate multiple operations in a single string, such as (2+3)*5.
+6. Enable users to clear the calculator with a clear button.
+7. Make sure the calculator is accessible and easy to use.
+8. Make sure the calculator is tested on multiple browsers and devices.
+9. Ensure the calculator is secure and can handle large numbers with precision.
+10. Make sure the calculator is optimized for speed and performance.
+Code: <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .calculator {
+            width: 100%;
+            max-width: 500px;
+            background: #f1f1f1;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-screen {
+            width: 100%;
+            height: 60px;
+            padding: 10px;
+            font-size: 1.6rem;
+            background: #fff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: right;
+            overflow: auto;
+        }
+
+        .calculator-keys {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .calculator-key {
+            display: block;
+            width: 25%;
+            padding: 10px 0;
+            font-size: 1.4rem;
+            text-align: center;
+            background: #fff;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .calculator-key:hover {
+            background: #f1f1f1;
+        }
+
+        @media (max-width: 600px) {
+            .calculator-key {
+                font-size: 1.2rem;
+                width: 33.3333%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .calculator-key {
+                font-size: 1.2rem;
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="calculator-screen">0</div>
+        <div class="calculator-keys">
+            <button type="button" class="operator" value="+">+</button>
+            <button type="button" class="operator" value="-">-</button>
+            <button type="button" class="operator" value="*">&times;</button>
+            <button type="button" class="operator" value="/">&divide;</button>
+
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+
+            <button type="button" value="0">0</button>
+            <button type="button" class="decimal" value=".">.</button>
+            <button type="button" class="all-clear" value="all-clear">AC</button>
+
+            <button type="button" class="equal-sign" value="=">=</button>
+        </div>
+    </div>
+
+    <script>
+        const calculator = {
+            displayValue: '0',
+            firstOperand: null,
+            waitingForSecondOperand: false,
+            operator: null,
+        };
+
+        function inputDigit(digit) {
+            const { displayValue, waitingForSecondOperand } = calculator;
+
+            if (waitingForSecondOperand === true) {
+                calculator.displayValue = digit;
+                calculator.waitingForSecondOperand = false;
+            } else {
+                calculator.displayValue =
+                    displayValue === '0' ? digit : displayValue + digit;
+            }
+        }
+
+        function inputDecimal(dot) {
+            if (calculator.waitingForSecondOperand === true) return;
+
+            if (!calculator.displayValue.includes(dot)) {
+                calculator.displayValue += dot;
+            }
+        }
+
+        function handleOperator(nextOperator) {
+            const { firstOperand, displayValue, operator } = calculator
+            const inputValue = parseFloat(displayValue);
+
+            if (operator && calculator.waitingForSecondOperand) {
+                calculator.operator = nextOperator;
+                return;
+            }
+
+            if (firstOperand == null) {
+                calculator.firstOperand = inputValue;
+            } else if (operator) {
+                const currentValue = firstOperand || 0;
+                const result = performCalculation[operator](currentValue, inputValue);
+
+                calculator.displayValue = String(result);
+                calculator.firstOperand = result;
+            }
+
+            calculator.waitingForSecondOperand = true;
+            calculator.operator = nextOperator;
+        }
+
+        const performCalculation = {
+            '/': (firstOperand, secondOperand) => firstOperand / secondOperand,
+
+            '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
+
+            '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
+
+            '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
+
+            '=': (firstOperand, secondOperand) => secondOperand
+        };
+
+        function resetCalculator() {
+            calculator.displayValue = '0';
+            calculator.firstOperand = null;
+            calculator.waitingForSecondOperand = false;
+            calculator.operator = null;
+        }
+
+        function updateDisplay() {
+            const display = document.querySelector('.calculator-screen');
+            display.value = calculator.displayValue;
+        }
+
+        const keys = document.querySelector('.calculator-keys');
+        keys.addEventListener('click', (event) => {
+            const { target } = event;
+            if (!target.matches('button')) {
+                return;
+            }
+
+            if (target.classList.contains('operator')) {
+                handleOperator(target.value);
+            }
+
+            if (target.classList.contains('all-clear')) {
+                resetCalculator();
+            }
+
+            if (target.classList.contains('decimal')) {
+                inputDecimal(target.value);
+            }
+
+            if (target.classList.contains('equal-sign')) {
+                handleOperator(target.value);
+            }
+
+            if (target.value.match(/[0-9]/)) {
+                inputDigit(target.value);
+            }
+
+            updateDisplay();
+        });
+    </script>
+</body>
+
+</html>
+IsValid: True
+

@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <title>Calculator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+      }
+
+      #calculator {
+        width: 300px;
+        min-width: 300px;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 10px;
+        background-color: #f4f4f4;
+        border: 1px solid #ccc;
+      }
+
+      .button {
+        border: 1px solid #ccc;
+        background-color: #f4f4f4;
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .button:hover {
+        background-color: #ddd;
+      }
+
+      .result {
+        font-size: 18px;
+        padding: 10px 0;
+      }
+
+      /* Responsive design */
+      @media (min-width: 500px) {
+        #calculator {
+          width: 400px;
+          min-width: 400px;
+          max-width: 400px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="calculator">
+      <div id="display">
+        <div class="result"></div>
+      </div>
+      <div class="buttons">
+        <button class="button" data-value="7">7</button>
+        <button class="button" data-value="8">8</button>
+        <button class="button" data-value="9">9</button>
+        <button class="button" data-value="/">/</button>
+        <button class="button" data-value="4">4</button>
+        <button class="button" data-value="5">5</button>
+        <button class="button" data-value="6">6</button>
+        <button class="button" data-value="*">*</button>
+        <button class="button" data-value="1">1</button>
+        <button class="button" data-value="2">2</button>
+        <button class="button" data-value="3">3</button>
+        <button class="button" data-value="-">-</button>
+        <button class="button" data-value="0">0</button>
+        <button class="button" data-value=".">.</button>
+        <button class="button" data-value="+">+</button>
+        <button class="button" data-value="clear">clear</button>
+        <button class="button" data-value="undo">undo</button>
+        <button class="button" data-value="redo">redo</button>
+        <button class="button" data-value="=">=</button>
+        <button class="button" data-value="mem">mem</button>
+      </div>
+    </div>
+    <script>
+      // get all the buttons
+      const buttons = document.querySelectorAll(".button");
+      const display = document.querySelector(".result");
+      let equation = "";
+      // add click event to all the buttons
+      buttons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          // get the value from the button that was clicked
+          const value = e.target.dataset.value;
+          // check if the value is a number
+          if (Number(value) || value === "0") {
+            equation += value;
+          } else if (value === "clear") {
+            equation = "";
+          } else if (value === "undo") {
+            equation = equation.slice(0, equation.length - 1);
+          } else if (value === "redo") {
+            equation = equation;
+          } else if (value === "mem") {
+            equation = equation;
+          } else {
+            // if it's not a number then it must be an operator
+            equation += ` ${value} `;
+          }
+          // update the display
+          display.textContent = equation;
+        });
+      });
+    </script>
+  </body>
+</html>

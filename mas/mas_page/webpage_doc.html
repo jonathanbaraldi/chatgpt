@@ -1,0 +1,162 @@
+<!-- HTML Code -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Customer Services</title>
+        <meta name="description" content="Description of customer services and products">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+
+        <!-- CSS Code -->
+        <style>
+body {
+    font-family: sans-serif;
+    background-color: #fafafa;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1024px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333333;
+}
+
+section {
+    padding: 20px 0;
+}
+
+#display-images {
+    text-align: center;
+}
+
+#display-images img {
+    width: 100%;
+    max-width: 400px;
+}
+
+form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+
+form input[type="submit"] {
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+footer li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+footer a {
+    color: #333333;
+    text-decoration: none;
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #999999;
+}
+</style>
+
+<script>
+// Add smooth scrolling to all links
+$(document).ready(function(){
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+});
+</script>
+    </head>
+
+
+
+
+    <body>
+        <header>
+            <h1>Customer Services</h1>
+        </header>
+        <section>
+            <h2>Services Offered</h2>
+            <p>Description of services offered by the customer.</p>
+        </section>
+        <section id="display-images">
+            <h2>Images</h2>
+            <!-- Images related to customer's services -->
+        </section>
+        <section>
+            <h2>Contact Us</h2>
+            <form action="form-handler.php" method="post">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <label for="message">Message</label>
+                <textarea name="message" id="message"></textarea>
+                <input type="submit" value="Send Message">
+            </form>
+        </section>
+        <footer>
+            <ul>
+                <li><a href="https://www.facebook.com/customer">Facebook</a></li>
+                <li><a href="https://www.twitter.com/customer">Twitter</a></li>
+                <li><a href="https://www.instagram.com/customer">Instagram</a></li>
+            </ul>
+            <p>© Customer Services</p>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
+

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator</title>
+    <style>
+        /* Add CSS styling here */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px 0;
+        }
+
+        .calculator-container {
+            width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .calculator-container .calculator-display {
+            background-color: #444;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .calculator-container .calculator-keypad {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .calculator-container .calculator-keypad button {
+            font-size: 20px;
+            width: 25%;
+            height: 60px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            color: #444;
+        }
+
+        .calculator-container .calculator-keypad button:hover {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator-container">
+        <div class="calculator-display">
+            <span class="result">0</span>
+        </div>
+        <div class="calculator-keypad">
+            <button class="all-clear" type="button">AC</button>
+            <button class="clear" type="button">C</button>
+            <button class="backspace" type="button">&#8592;</button>
+            <button class="calculate" type="button">=</button>
+            <button class="divide" type="button">/</button>
+            <button class="multiply" type="button">*</button>
+            <button class="minus" type="button">-</button>
+            <button class="plus" type="button">+</button>
+            <button class="decimal" type="button">.</button>
+            <button class="zero" type="button">0</button>
+            <button class="one" type="button">1</button>
+            <button class="two" type="button">2</button>
+            <button class="three" type="button">3</button>
+            <button class="four" type="button">4</button>
+            <button class="five" type="button">5</button>
+            <button class="six" type="button">6</button>
+            <button class="seven" type="button">7</button>
+            <button class="eight" type="button">8</button>
+            <button class="nine" type="button">9</button>
+            <button class="sin" type="button">sin</button>
+            <button class="cos" type="button">cos</button>
+            <button class="tan" type="button">tan</button>
+            <button class="ln" type="button">ln</button>
+            <button class="log" type="button">log</button>
+            <button class="exp" type="button">e</button>
+            <button class="sqrt" type="button">√</button>
+            <button class="sq" type="button">x<sup>2</sup></button>
+            <button class="percent" type="button">%</button>
+        </div>
+    </div>
+    <script>
+        // Add JavaScript code here
+        const calculator = {
+            displayValue: '0',
+            firstOperand: null,
+            waitingForSecondOperand: false,
+            operator: null,
+        };
+
+        // This function updates the display
+        function updateDisplay() {
+            const display = document.querySelector('.calculator-display .result');
+            display.value = calculator.displayValue;
+        }
+
+        // This function handles numbers
+        function inputDigit(digit) {
+            const {
+                displayValue,
+                waitingForSecondOperand
+            } = calculator;
+            if (waitingForSecondOperand === true) {
+                calculator.displayValue = digit;
+                calculator.waitingForSecondOperand = false;
+            } else {
+                calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
+            }
+        }
+
+        // This function handles operators
+        function handleOperator(nextOperator) {
+            const {
+                firstOperand,
+                displayValue,
+                operator
+            } = calculator
+            const inputValue = parseFloat(displayValue);
+            if (operator && calculator.waitingForSecondOperand) {
+                calculator.operator = nextOperator;
+                return;
+            }
+            if (firstOperand === null) {
+                calculator.firstOperand = inputValue;
+            } else if (operator) {
+                const currentValue = firstOperand || 0;
+                const result = performCalculation[operator](currentValue, inputValue);
+                calculator.displayValue = String(result);
+                calculator.firstOperand = result;
+            }
+            calculator.waitingForSecondOperand = true;
+            calculator.operator = nextOperator;
+        }
+
+        // This function handles calculations
+        const performCalculation = {
+            '/': (firstOperand, secondOperand) => firstOperand / secondOperand,
+            '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
+            '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
+            '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
+            '=': (firstOperand, secondOperand) => secondOperand
+        };
+
+        // This function handles special functions
+        function resetCalculator() {
+            calculator.displayValue = '0';
+            calculator.firstOperand = null;
+            calculator.waitingForSecondOperand = false;
+            calculator.operator = null;
+        }
+
+        function inputDecimal(dot) {
+            if (calculator.waitingForSecondOperand === true) return;
+            if (!calculator.displayValue.includes(dot)) {
+                calculator.displayValue += dot;
+            }
+        }
+
+        function trigonometric(trig) {
+            const {
+                displayValue,
+            } = calculator;
+            const inputValue = parseFloat(displayValue);
+            if (trig === 'sin') {
+                calculator.displayValue = Math.sin(inputValue);
+            } else if (trig === 'cos') {
+                calculator.displayValue = Math.cos(inputValue);
+            } else if (trig === 'tan') {
+                calculator.displayValue = Math.tan(inputValue);
+            }
+        }
+
+        function logarithmic(log) {
+            const {
+                displayValue,
+            } = calculator;
+            const inputValue = parseFloat(displayValue);
+            if (log === 'ln') {
+                calculator.displayValue = Math.log(inputValue);
+            } else if (log === 'log') {
+                calculator.displayValue = Math.log10(inputValue);
+            }
+        }
+
+        function exponential(exp) {
+            const {
+                displayValue,
+            } = calculator;
+            const inputValue = parseFloat(displayValue);
+            if (exp === 'exp') {
+                calculator.displayValue = Math.exp(inputValue);
+            }
+        }
+
+        function squareRoot() {
+            const {
+                displayValue,
+            } = calculator;
+            const inputValue = parseFloat(displayValue);
+            calculator.displayValue = Math.sqrt(inputValue);
+        }
+
+        function square() {
+            const {
+                displayValue,
+            } = calculator;
+            const inputValue = parseFloat(displayValue);
+            calculator.displayValue = inputValue * inputValue;
+        }
+
+        function percent() {
+            const {
+                displayValue,
+            } = calculator;
+            const inputValue = parseFloat(displayValue);
+            calculator.displayValue = inputValue * 0.01;
+        }
+
+        // This function handles all of the button clicks
+        const keys = document.querySelector('.calculator-keypad');
+        keys.addEventListener('
