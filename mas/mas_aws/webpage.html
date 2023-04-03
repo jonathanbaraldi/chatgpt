@@ -1,0 +1,21 @@
+<pre>
+# Step 1: Run CloudWatch metrics to analyze the application JONJONES running on the instance-id xas12445 in us-east-1
+
+aws cloudwatch get-metric-data --metric-name JONJONES --start-time <INSERT START TIME> --end-time <INSERT END TIME> --namespace AWS/EC2 --dimensions Name=InstanceId,Value=xas12445 --region us-east-1
+
+# Step 2: Use the AWS Systems Manager to assess the hardware and software components of the instance
+
+aws ssm describe-instance-information --instance-ids xas12445 --region us-east-1
+
+# Step 3: Use the AWS Trusted Advisor to identify any existing bottlenecks
+
+aws support describe-trusted-advisor-check-result --check-id xas12445 --region us-east-1
+
+# Step 4: Implement any solutions identified by the Trusted Advisor
+
+# Step 5: Test the application to ensure the performance issues are resolved
+
+# Step 6: Document the solutions implemented and any changes made to the system 
+
+aws ssm create-document --name <INSERT DOCUMENT NAME> --content <INSERT DOCUMENT CONTENT> --region us-east-1
+</pre>
